@@ -15,4 +15,9 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    private ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable("id") int id) {
+        EmployeeResponse employee = employeeService.getEmployeeById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(employee);
+    }
+
 }
